@@ -20,6 +20,7 @@ install_gleam() {
     if test "$install_type" = "version"; then
       local release_file="$tmp_dir/gleam-$install_type-$version.tar.gz"
       local release_url=$(get_download_url $version) || exit $?
+      echo "Downloading file"
       download_file "$release_file" "$release_url"
       mkdir -p $install_path/bin
       tar -xf "$release_file" -C $install_path/bin
@@ -80,7 +81,7 @@ get_download_url() {
 fail() {
   error_message=$1
   printf "$error_message\\n" 1>&2
-  return 1
+  exit 1
 }
 
 install_gleam $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
