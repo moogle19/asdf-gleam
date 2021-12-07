@@ -20,6 +20,7 @@ install_gleam() {
     if test "$install_type" = "version"; then
       local release_file="$tmp_dir/gleam-$install_type-$version.tar.gz"
       local release_url=$(get_download_url $version) || exit $?
+      echo $?
       echo "Downloading file"
       download_file "$release_file" "$release_url"
       mkdir -p $install_path/bin
