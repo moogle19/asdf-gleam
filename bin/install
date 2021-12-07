@@ -76,8 +76,6 @@ download_file() {
 get_download_url() {
   local version=$1
   local variant=$(get_variant $version) || exit $?
-  echo "get_download_url"
-  echo $?
   echo "https://github.com/gleam-lang/gleam/releases/download/v${version}/gleam-v${version}-${variant}.tar.gz"
 }
 
