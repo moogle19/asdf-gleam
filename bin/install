@@ -76,13 +76,15 @@ download_file() {
 get_download_url() {
   local version=$1
   local variant=$(get_variant $version) || exit $?
+  echo "get_download_url"
+  echo $?
   echo "https://github.com/gleam-lang/gleam/releases/download/v${version}/gleam-v${version}-${variant}.tar.gz"
 }
 
 fail() {
   error_message=$1
   printf "$error_message\\n" 1>&2
-  exit 1
+  exit 2
 }
 
 install_gleam $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
