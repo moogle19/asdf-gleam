@@ -54,7 +54,7 @@ get_variant() {
       case "$(uname -m)" in
         x86_64) echo macos ;;
         # arm64) echo macos-arm64 ;;
-        *) fail "$(uname -m) is not supported on macos" ;;
+        *) fail "$(uname -m) is not supported on macOS" ;;
       esac
       ;;
     *) fail "$(uname -s) is not supported" ;;
@@ -80,7 +80,6 @@ get_download_url() {
 fail() {
   error_message=$1
   printf "$error_message\\n" 1>&2
-
   exit 1
 }
 
