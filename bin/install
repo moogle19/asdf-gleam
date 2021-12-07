@@ -49,17 +49,17 @@ get_variant() {
     Linux)
       case "$(uname -m)" in
         x86_64) echo linux-amd64 ;;
-        *) fail "$(uname -m) is not supported on linux" ;;
+        *) fail "$(uname -m) is not supported on linux"; exit 1 ;;
       esac
       ;;
     Darwin)
       case "$(uname -m)" in
         x86_64) echo macos ;;
         # arm64) echo macos-arm64 ;;
-        *) fail "$(uname -m) is not supported on macOS" ;;
+        *) fail "$(uname -m) is not supported on macOS"; exit 1 ;;
       esac
       ;;
-    *) fail "$(uname -s) is not supported" ;;
+    *) fail "$(uname -s) is not supported"; exit 1 ;;
   esac
 }
 
